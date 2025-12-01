@@ -1,0 +1,170 @@
+.projects{
+  display: flex;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  flex-direction: column;
+  margin-top: 300px;
+
+  .body{
+    max-width: 1400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+
+  /* floating modal preview (follows cursor) */
+  .modalContainer{
+    height: 300px;
+    width: 400px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 30;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  .modalSlider{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .modal{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal img{
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  /* custom cursor and view bubble */
+  .cursor, .cursorLabel{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #455CE9;
+    color: white;
+    position: fixed;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 300;
+    pointer-events: none;
+  }
+
+  .cursorLabel{
+    background-color: transparent;
+  }
+}
+
+/* ----------------------------
+   Large Desktop (<=1600px)
+   ---------------------------- */
+@media (max-width: 1600px) {
+  .projects{
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 240px;
+
+    .modalContainer{ width: 360px; height: 260px; }
+    .cursor, .cursorLabel { width: 70px; height: 70px; }
+  }
+}
+
+/* ----------------------------
+   Desktop -> Tablet (<= 1024px)
+   Stack list and reduce sizes
+   ---------------------------- */
+@media (max-width: 1024px) {
+  .projects{
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-top: 200px;
+
+    .body{
+      width: 100%;
+      padding: 0;
+    }
+
+    /* Project item styles (ensure you have .project defined in its module) */
+    :global(.project) {
+      padding: 36px 24px; /* reduce padding */
+      h2 { font-size: 48px; }
+      p  { font-size: 16px; }
+      &:hover { opacity: 1; } /* remove hover opacity for touch-friendly */
+    }
+
+    .modalContainer{ width: 320px; height: 220px; }
+
+    .cursor, .cursorLabel { width: 64px; height: 64px; }
+  }
+}
+
+/* ----------------------------
+   Small Tablets / Large Phones (<= 768px)
+   No custom cursor, stacked layout, bigger tap targets
+   ---------------------------- */
+@media (max-width: 768px) {
+  .projects{
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-top: 140px;
+
+    .body{
+      gap: 8px;
+      margin-bottom: 60px;
+    }
+
+    :global(.project) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 8px;
+      h2 { font-size: 32px; }
+      p  { font-size: 14px; margin-top: 6px; }
+      &:hover { transform: none; } /* disable hover animations */
+    }
+
+    
+  }
+}
+
+/* ----------------------------
+   Mobile (<= 480px)
+   Compact layout
+   ---------------------------- */
+@media (max-width: 480px) {
+  .projects{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 100px;
+
+    .body{
+      margin-bottom: 40px;
+    }
+
+    :global(.project) {
+      padding: 16px;
+      h2 { font-size: 22px; }
+      p  { font-size: 13px; }
+    }
+  }
+}

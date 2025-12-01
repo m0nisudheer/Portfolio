@@ -1,0 +1,134 @@
+.landing {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+  background: #999d9e;
+
+  img {
+    position: absolute;
+    width: 500px;
+    height: 700px;
+    z-index: 1;
+    object-fit: cover;
+  }
+
+  .sliderContainer {
+    position: absolute;
+    top: calc(100vh - 350px);
+  }
+
+  .slider {
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .slider p {
+    position: relative;
+    margin: 0px;
+    color: white;
+    font-size: 230px;
+    font-weight: 500;
+    padding-right: 50px;
+  }
+
+  .slider p:nth-of-type(2) {
+    position: absolute;
+    left: 100%;
+    top: 0;
+  }
+
+  .description {
+    position: absolute;
+    top: 35%;
+    left: 65%;
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    
+    p {
+      margin: 0px;
+      margin-bottom: 10px;
+    }
+
+    svg {
+      transform: scale(2);
+      margin-bottom: 100px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .landing {
+    img {
+      width: 380px;
+      height: 550px;
+    }
+
+    .sliderContainer {
+      top: calc(100vh - 250px);
+    }
+
+    .slider p {
+      font-size: 160px;
+      padding-right: 35px;
+    }
+
+    .description {
+      left: 55%;
+      font-size: 20px;
+    }
+  }
+}
+
+/* ============ 📱 Mobile Large (480px - 768px) ============ */
+@media (max-width: 768px) {
+  .landing {
+    img {
+      width: 280px;
+      height: 420px;
+    }
+
+    .sliderContainer {
+      top: calc(100vh - 180px);
+    }
+
+    .slider p {
+      font-size: 110px;
+      padding-right: 25px;
+    }
+
+    .description {
+      left: 50%;
+      font-size: 18px;
+      transform: translateX(-20%);
+    }
+  }
+}
+
+/* ============ 📱 Mobile Small (Below 480px) ============ */
+@media (max-width: 480px) {
+  .landing {
+    
+
+    .sliderContainer {
+      top: calc(100vh - 140px);
+    }
+
+    .slider p {
+      font-size: 70px;
+      padding-right: 20px;
+    }
+
+    .description {
+      top:65%;
+      left: 50%;
+      font-size: 16px;
+      transform: translateX(-30%);
+      svg {
+      margin-bottom: 20px;
+    }
+    }
+  }
+}

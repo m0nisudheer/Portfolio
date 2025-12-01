@@ -1,0 +1,131 @@
+.project {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 80px;
+  border-top: 1px solid rgb(201, 201, 201);
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+
+  h2 {
+    font-size: 60px;
+    margin: 0;
+    font-weight: 400;
+    transition: transform 0.4s;
+    line-height: 1;
+  }
+
+  p {
+    transition: transform 0.4s;
+    font-weight: 300;
+  }
+
+  &:last-of-type {
+    border-bottom: 1px solid rgb(201, 201, 201);
+  }
+
+  &:hover,
+  &:focus-within {
+    opacity: 0.5;
+
+    h2 {
+      transform: translateX(-10px);
+    }
+
+    p {
+      transform: translateX(10px);
+    }
+  }
+}
+
+/* ----------------------------
+   Large desktops (≤1600px)
+   ---------------------------- */
+@media (max-width: 1600px) {
+  .project {
+    padding: 40px 60px;
+
+    h2 {
+      font-size: 48px;
+    }
+  }
+}
+
+/* ----------------------------
+   Tablets (≤1024px)
+   Stacked layout: title above small label
+   ---------------------------- */
+@media (max-width: 1024px) {
+  .project {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 24px;
+    gap: 8px;
+    text-align: left;
+
+    h2 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 15px;
+      margin-top: 6px;
+    }
+
+    /* disable the translate hover for touch-focused/tablet to avoid jumpy UX */
+    &:hover,
+    &:focus-within {
+      opacity: 1;
+      h2 { transform: none; }
+      p  { transform: none; }
+    }
+  }
+}
+
+/* ----------------------------
+   Small tablets / phones (≤768px)
+   Compact layout, larger tap area, no hover
+   ---------------------------- */
+@media (max-width: 768px) {
+  .project {
+    padding: 20px 16px;
+    border-top-width: 1px;
+    gap: 6px;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    /* hide hover transforms entirely on mobile */
+    &:hover,
+    &:focus-within {
+      opacity: 1;
+      h2 { transform: none; }
+      p  { transform: none; }
+    }
+  }
+}
+
+/* ----------------------------
+   Very small phones (≤480px)
+   Slightly smaller text & spacing
+   ---------------------------- */
+@media (max-width: 480px) {
+  .project {
+    padding: 16px 12px;
+
+    h2 {
+      font-size: 22px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+}

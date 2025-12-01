@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+     margin: 0px;
+    overflow: hidden; /* Hide scrollbars */
+    cursor: wait;
+}
+
+
+@layer utilities {
+  .fancy-border {
+    --clr-border: #1d1d1b;
+    border-radius: 1rem;
+    padding: 14px;
+    border: 1px solid transparent;
+
+    background-image:
+      /* left */
+      repeating-linear-gradient(
+        45deg,
+        var(--clr-border),
+        var(--clr-border) 4px,
+        transparent 4px,
+        transparent 10px
+      ),
+      /* top */
+      repeating-linear-gradient(
+        135deg,
+        var(--clr-border),
+        var(--clr-border) 4px,
+        transparent 4px,
+        transparent 10px
+      ),
+      /* right */
+      repeating-linear-gradient(
+        225deg,
+        var(--clr-border),
+        var(--clr-border) 4px,
+        transparent 4px,
+        transparent 10px
+      ),
+      /* bottom */
+      repeating-linear-gradient(
+        315deg,
+        var(--clr-border),
+        var(--clr-border) 4px,
+        transparent 4px,
+        transparent 10px
+      );
+
+    background-repeat: no-repeat;
+
+    /* 1px thickness borders */
+    background-size:
+      1px 100%,   /* left */
+      100% 1px,   /* top */
+      1px 100%,   /* right */
+      100% 1px;   /* bottom */
+
+    background-position:
+      left top,
+      left top,
+      right top,
+      left bottom;
+  }
+}
+
+
+.paper-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  perspective: 1500px;
+}
