@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from './style.module.scss';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import Link from './Link';
+import Linked from './Link'
 import Curve from './Curve';
 import Footer from './Footer';
 
@@ -30,7 +30,7 @@ const navItems = [
   
 ]
 
-export default function index() {
+export default function Nav() {
 
    const menuSlide = {
     initial: {x: "calc(100% + 100px)"},
@@ -56,12 +56,12 @@ export default function index() {
                     </div>
                     {
                       navItems.map( (data, index) => {
-                        return <Link 
+                        return <Linked 
                         key={index} 
                         data={{...data, index}} 
                         isActive={selectedIndicator == data.href} 
                         setSelectedIndicator={setSelectedIndicator}>
-                        </Link>
+                        </Linked>
                       })
                     }
             </div>

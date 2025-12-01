@@ -2,27 +2,39 @@
 import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap';
 
-export default function index({children}) {
+export default function Magnetic({children}) {
     const magnetic = useRef(null);
 
-    useEffect( () => {
-        console.log(children)
-        const xTo = gsap.quickTo(magnetic.current, "x", {duration: 1, ease: "elastic.out(1, 0.3)"})
-        const yTo = gsap.quickTo(magnetic.current, "y", {duration: 1, ease: "elastic.out(1, 0.3)"})
+  useEffect(() => {
 
-        magnetic.current.addEventListener("mousemove", (e) => {
-            const { clientX, clientY } = e;
-            const {height, width, left, top} = magnetic.current.getBoundingClientRect();
-            const x = clientX - (left + width/2)
-            const y = clientY - (top + height/2)
-            xTo(x * 0.35);
-            yTo(y * 0.35)
-        })
-        magnetic.current.addEventListener("mouseleave", (e) => {
-            xTo(0);
-            yTo(0)
-        })
-    }, [])
+    const el = magnetic.current;
+    const xTo = gsap.quickTo(el, "x", { duration: 1, ease: "elastic.out(1, 0.3)" });
+    const yTo = gsap.quickTo(el, "y", { duration: 1, ease: "elastic.out(1, 0.3)" });
+
+    const handleMove = (e) => {
+        const { clientX, clientY } = e;
+        const { height, width, left, top } = el.getBoundingClientRect();
+        const x = clientX - (left + width / 2);
+        const y = clientY - (top + height / 2);
+        xTo(x * 0.35);
+        yTo(y * 0.35);
+    };
+
+    const handleLeave = () => {
+        xTo(0);
+        yTo(0);
+    };
+
+    el.addEventListener("mousemove", handleMove);
+    el.addEventListener("mouseleave", handleLeave);
+
+    return () => {
+        el.removeEventListener("mousemove", handleMove);
+        el.removeEventListener("mouseleave", handleLeave);
+    };
+
+}, []);
+
 
     return (
         React.cloneElement(children, {ref:magnetic})

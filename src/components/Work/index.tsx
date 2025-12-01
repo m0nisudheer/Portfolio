@@ -87,7 +87,7 @@ function Timeline() {
                             style={{ clipPath: 'inset(12% 0 12% 0px)' }}
                         >
                             {year.split('').map((char, charIndex) => (
-                                <span className={`char xl:text-[20rem] text-[4em] font-medium text-black ${index !== 0 ? 'invisible' : ''}`}>
+                                <span key={charIndex} className={`char xl:text-[20rem] text-[4em] font-medium text-black ${index !== 0 ? 'invisible' : ''}`}>
                                     {char}
                                 </span>
                             ))}

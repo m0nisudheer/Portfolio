@@ -2,7 +2,7 @@ import styles from './style.module.scss';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
-export default function Index({data, isActive, setSelectedIndicator}) {
+export default function Linked({data, isActive, setSelectedIndicator}) {
   
     const { title, href, index} = data;
      const slide = {

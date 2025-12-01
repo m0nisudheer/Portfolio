@@ -2,7 +2,7 @@ import styles from './style.module.scss';
 import { useInView, motion, inView } from 'framer-motion';
 import { useRef } from 'react';
 import Rounded from '../../common/RoundedButton';
-export default function index() {
+export default function Description() {
      const slideUp = {
         initial: {
             y: "100%"

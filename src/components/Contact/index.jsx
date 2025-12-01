@@ -7,7 +7,7 @@ import { useScroll, motion, useTransform, useSpring } from 'framer-motion';
 import Magnetic from '../../common/Magnetic';
 import Link from 'next/link';
 
-export default function index() {
+export default function Contact() {
     const container = useRef(null);
     const [time, setTime] = useState(new Date());
 const [screenWidth, setScreenWidth] = useState(0);
@@ -67,7 +67,7 @@ const rotate = isDesktop ? rotateDesktop : 0;
                                 src={`/assets/portfolioImg.jpeg`}
                             />
                         </div>
-                        <h2>Let's work</h2>
+                        <h2>Let&apos;s work</h2>
                     </span>
                     <h2>together</h2>
                     <motion.div style={isDesktop ? {x} : {}} className={styles.buttonContainer}>
